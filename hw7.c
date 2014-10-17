@@ -471,6 +471,59 @@ static void xWing(double x,double y,double z,
    glVertex3d(-25,+9,-10);
    glEnd();
 
+   // Start Upper Left Engine
+   glPushMatrix();
+   glTranslated(-5.4, 3.75, -13);
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 0);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 5);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,1);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+   }
+   glEnd();
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 5);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
+      
+   }
+   glEnd();
+
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
+      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
+   }
+   glEnd();
+   glPopMatrix();
+
    // ------------------- Left Bottom Wing -----------------------------------
    glBegin(GL_POLYGON);
    normal(-3,0.5,-17, -3,0.5,-7, -25,-7,-14);
@@ -512,6 +565,58 @@ static void xWing(double x,double y,double z,
    glVertex3d(-25,-8,-10);
    glEnd();
 
+   // Start Lower Left Engine
+   glPushMatrix();
+   glTranslated(-5.4, -2.3, -13);
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 0);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 5);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,1);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+   }
+   glEnd();
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 5);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
+      
+   }
+   glEnd();
+
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
+      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
+   }
+   glEnd();
+   glPopMatrix();
 
    // ------------------- Right Top Wing -----------------------------------
    glBegin(GL_POLYGON);
@@ -554,6 +659,59 @@ static void xWing(double x,double y,double z,
    glVertex3d(+25,+9,-10);
    glEnd();
 
+   // Start Upper Right Engine
+   glPushMatrix();
+   glTranslated(5.4, 3.75, -13);
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 0);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 5);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,1);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+   }
+   glEnd();
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 5);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
+      
+   }
+   glEnd();
+
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
+      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
+   }
+   glEnd();
+   glPopMatrix();
+
    // ------------------- Right Bottom Wing -----------------------------------
    glBegin(GL_POLYGON);
    normal(3,0.5,-17, 3,0.5,-7, 25,-7,-14);
@@ -594,6 +752,59 @@ static void xWing(double x,double y,double z,
    glVertex3d(+25,-7,-10);
    glVertex3d(+25,-8,-10);
    glEnd();
+
+   // Start Lower Right Engine
+   glPushMatrix();
+   glTranslated(5.4, -2.3, -13);
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 0);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 5);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,1);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+   }
+   glEnd();
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 5);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
+      
+   }
+   glEnd();
+
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
+      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
+   }
+   glEnd();
+   glPopMatrix();
 
    //  Undo transofrmations
    glPopMatrix();
