@@ -56,7 +56,7 @@ float shinyvec[1];    // Shininess (value)
 int zh        =  90;  // Light azimuth
 float ylight  =   0;  // Elevation of light
 
-// For idle function when snow falling
+// For idle function
 unsigned long ot;
 unsigned long dt;
 
@@ -120,10 +120,10 @@ static void xWing(double x,double y,double z,
    // Nose left top panel
    glBegin(GL_POLYGON);
    glColor3f(0.75,0.75,0.75);
-   normal(-2,0,25, -5,0,-3, -1,1.5,25);
+   normal(-2,0,25, -5,0,-3, -1,1.5,30);
    glVertex3d(-5,+0,-3);
-   glVertex3d(-2,+0,+25);
-   glVertex3d(-1,+1.5,+25);
+   glVertex3d(-2,+0,+30);
+   glVertex3d(-1,+1.5,+30);
    glVertex3d(-2,+2.5,+7);
    glVertex3d(-3,+5,+0);
    glVertex3d(-3,+5,-2);
@@ -132,10 +132,10 @@ static void xWing(double x,double y,double z,
 
    // Nose right top panel
    glBegin(GL_POLYGON);
-   normal(2,0,25, 5,0,-3, 1,1.5,25);
+   normal(2,0,25, 5,0,-3, 1,1.5,30);
    glVertex3d(+5,+0,-3);
-   glVertex3d(+2,+0,+25);
-   glVertex3d(+1,+1.5,+25);
+   glVertex3d(+2,+0,+30);
+   glVertex3d(+1,+1.5,+30);
    glVertex3d(+2,+2.5,+7);
    glVertex3d(+3,+5,+0);
    glVertex3d(+3,+5,-2);
@@ -169,40 +169,167 @@ static void xWing(double x,double y,double z,
    glVertex3d(+3,+4,-3);
    glEnd();
 
+   // ---------------------------- Nose panels  ---------------------------
    // Nose top panel
    glBegin(GL_POLYGON);
-   normal(2,2.5,7, -2,2.5,7, 1,1.5,25);
+   normal(2,2.5,7, -2,2.5,7, 1,1.5,30);
    glVertex3d(-2,+2.5,+7);
    glVertex3d(+2,+2.5,+7);
-   glVertex3d(+1,+1.5,+25);
-   glVertex3d(-1,+1.5,+25);
+   glVertex3d(+1,+1.5,+30);
+   glVertex3d(-1,+1.5,+30);
    glEnd();
 
    // Nose left bottom panel
    glBegin(GL_POLYGON);
-   normal(-2,0,25, -5,0,-3, -1,-1,25);
+   normal(-2,0,30, -5,0,-3, -1,-1,30);
    glVertex3d(-5,+0,-3);
-   glVertex3d(-2,+0,+25);
-   glVertex3d(-1,-1,+25);
+   glVertex3d(-2,+0,+30);
+   glVertex3d(-1,-1,+30);
    glVertex3d(-3,-3,-3);
    glEnd();
 
    // Nose right bottom panel
    glBegin(GL_POLYGON);
-   normal(2,0,25, 5,0,-3, +1,-1,25);
+   normal(2,0,30, 5,0,-3, +1,-1,30);
    glVertex3d(+5,+0,-3);
-   glVertex3d(+2,+0,+25);
-   glVertex3d(+1,-1,+25);
+   glVertex3d(+2,+0,+30);
+   glVertex3d(+1,-1,+30);
    glVertex3d(+3,-3,-3);
    glEnd();
 
    // Nose bottom panel
    glBegin(GL_POLYGON);
-   normal(3,-3,-3, -3,-3,-3, 1,-1,25);
+   normal(3,-3,-3, -3,-3,-3, 1,-1,30);
    glVertex3d(-3,-3,-3);
    glVertex3d(+3,-3,-3);
-   glVertex3d(+1,-1,+25);
-   glVertex3d(-1,-1,+25);
+   glVertex3d(+1,-1,+30);
+   glVertex3d(-1,-1,+30);
+   glEnd();
+
+   // Nose tip panel
+   glBegin(GL_POLYGON);
+   normal(2,0,30, 1,-1,30, 1,1.5,30);
+   glVertex3d(+1,-1,+30);
+   glVertex3d(+2,+0,+30);
+   glVertex3d(+1,+1.5,+30);
+   glVertex3d(-1,+1.5,+30);
+   glVertex3d(-2,+0,+30);
+   glVertex3d(-1,-1,+30);
+   glEnd();
+
+   // --------------- Body top and bottom panels -----------------------
+   glBegin(GL_POLYGON);
+   normal(3,4,-3, -3,4,-3, 4,4,-4);
+   glVertex3d(-3,+4,-3);  
+   glVertex3d(+3,+4,-3);
+   glVertex3d(+4,+4,-4);
+   glVertex3d(+4,+4,-19);
+   glVertex3d(-4,+4,-19);
+   glVertex3d(-4,+4,-4);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(3,-3,-3, -3,-3,-3, 3,-3,-4);
+   glVertex3d(-3,-3,-3);  
+   glVertex3d(+3,-3,-3);
+   glVertex3d(+3,-3,-4);
+   glVertex3d(+3,-3,-19);
+   glVertex3d(-3,-3,-19);
+   glVertex3d(-3,-3,-4);
+   glEnd();
+
+   // --------------- Body left panels - behind cockpit to wings -------
+   glBegin(GL_POLYGON);
+   normal(-4,4,-4, -3,4,-3, -5,0,-4);
+   glVertex3d(-3,+4,-3);
+   glVertex3d(-4,+4,-4);
+   glVertex3d(-5,+0,-4);
+   glVertex3d(-5,+0,-3);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-5,0,-4, -4,4,-4, -5,0,-7);
+   glVertex3d(-4,+4,-4);
+   glVertex3d(-5,+0,-4);
+   glVertex3d(-5,+0,-7);
+   glVertex3d(-4,+4,-7);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-5,0,-7, -5,0,-3, -3,-3,-7);
+   glVertex3d(-5,+0,-3);
+   glVertex3d(-5,+0,-7);
+   glVertex3d(-3,-3,-7);
+   glVertex3d(-3,-3,-3);
+   glEnd();
+
+   // --------------- Body right panels - behind cockpit to wings -------
+   glBegin(GL_POLYGON);
+   normal(+4,4,-4, +3,4,-3, +5,0,-4);
+   glVertex3d(+3,+4,-3);
+   glVertex3d(+4,+4,-4);
+   glVertex3d(+5,+0,-4);
+   glVertex3d(+5,+0,-3);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(+5,0,-4, +4,4,-4, +5,0,-7);
+   glVertex3d(+4,+4,-4);
+   glVertex3d(+5,+0,-4);
+   glVertex3d(+5,+0,-7);
+   glVertex3d(+4,+4,-7);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(+5,0,-7, +5,0,-3, +3,-3,-7);
+   glVertex3d(+5,+0,-3);
+   glVertex3d(+5,+0,-7);
+   glVertex3d(+3,-3,-7);
+   glVertex3d(+3,-3,-3);
+   glEnd();
+
+   // ---------------- Body inner panels - to hide internals ------------
+   glBegin(GL_POLYGON);
+   normal(5,0,-7, 4,4,-7, 3,-3,-7);
+   glVertex3d(+4,+4,-7);
+   glVertex3d(+5,+0,-7);
+   glVertex3d(+3,-3,-7);
+   glVertex3d(-3,-3,-7);
+   glVertex3d(-5,+0,-7);
+   glVertex3d(-4,+4,-7);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(3,-3,-17, 4,4,-17, 3,-3,-19);
+   glVertex3d(+4,+4,-17);
+   glVertex3d(+3,-3,-17);
+   glVertex3d(+3,-3,-19);
+   glVertex3d(+4,+4,-19);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-3,-3,-17, -4,4,-17, -3,-3,-19);
+   glVertex3d(-4,+4,-17);
+   glVertex3d(-3,-3,-17);
+   glVertex3d(-3,-3,-19);
+   glVertex3d(-4,+4,-19);
+   glEnd();
+
+   // ------------------- Body back panels --------------------------------
+   glBegin(GL_POLYGON);
+   normal(-3,-3,-19, -4,4,-19, 3,-3,-19);
+   glVertex3d(-4,+4,-19);
+   glVertex3d(-3,-3,-19);
+   glVertex3d(+3,-3,-19);
+   glVertex3d(+4,+4,-19);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-3,-3,-17, -4,4,-17, 3,-3,-17);
+   glVertex3d(-4,+4,-17);
+   glVertex3d(-3,-3,-17);
+   glVertex3d(+3,-3,-17);
+   glVertex3d(+4,+4,-17);
    glEnd();
 
    //  Undo transofrmations
