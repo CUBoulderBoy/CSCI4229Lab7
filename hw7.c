@@ -101,11 +101,207 @@ int m_button = 0;
  }
 
 /*
+ *  Draw an x-wing wing laser cannon
+ *     
+ */
+static void wingLaser(double x, double y, double z){
+   int th = 0;
+
+   glPushMatrix();
+   glTranslated(x, y, z);
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 0);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(0.5 * Cos(th), 0.5 * Sin(th), 0);
+      
+   }
+   glEnd();
+
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(0.5 * Cos(th), 0.5 * Sin(th), 0);
+      glVertex3d(0.5 * Cos(th), 0.5 * Sin(th), 1);
+   }
+   glEnd();
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 1);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(0.7 * Cos(th), 0.7 * Sin(th), 1);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 8);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,1);
+      glVertex3d(0.7 * Cos(th), 0.7 * Sin(th), 8);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(0.7 * Cos(th), 0.7 * Sin(th), 1);
+      glVertex3d(0.7 * Cos(th), 0.7 * Sin(th), 8);
+   }
+   glEnd();
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 16);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,1);
+      glVertex3d(0.4 * Cos(th), 0.4 * Sin(th), 16);
+      
+   }
+   glEnd();
+
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(0.4 * Cos(th), 0.4 * Sin(th), 8);
+      glVertex3d(0.4 * Cos(th), 0.4 * Sin(th), 16);
+   }
+   glEnd();
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 24);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,1);
+      glVertex3d(0.25 * Cos(th), 0.25 * Sin(th), 24);
+      
+   }
+   glEnd();
+
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(0.25 * Cos(th), 0.25 * Sin(th), 16);
+      glVertex3d(0.25 * Cos(th), 0.25 * Sin(th), 24);
+   }
+   glEnd();
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 24.5);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,1);
+      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), 24.5);
+      
+   }
+   glEnd();
+
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(0.4 * Cos(th), 0.4 * Sin(th), 24);
+      glVertex3d(0.4 * Cos(th), 0.4 * Sin(th), 24.5);
+   }
+   glEnd();
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 26);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,1);
+      glVertex3d(0.1 * Cos(th), 0.1 * Sin(th), 26);
+      
+   }
+   glEnd();
+
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(0.1 * Cos(th), 0.1 * Sin(th), 24.5);
+      glVertex3d(0.1 * Cos(th), 0.1 * Sin(th), 26);
+   }
+   glEnd();
+
+   glPopMatrix();
+}
+
+/*
+ *  Draw an x-wing wing engine
+ *     
+ */
+static void wingEngine(double x, double y, double z){
+   int th = 0;
+   glPushMatrix();
+   glTranslated(x, y, z);
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 0);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, 8);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,1);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+      
+   }
+   glEnd();
+   
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+   }
+   glEnd();
+
+   glBegin(GL_TRIANGLE_FAN);
+   glVertex3d(0, 0, -9);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(0,0,-1);
+      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
+      
+   }
+   glEnd();
+
+   glBegin(GL_QUAD_STRIP);
+   for (th = 0; th <= 360; th += 1)
+   {
+      glNormal3d(Cos(th),Sin(th),0);
+      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
+      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
+   }
+   glEnd();
+   glPopMatrix();
+}
+
+/*
  *  Draw an x-wing
  *     
  */
-static void xWing(double x,double y,double z,
-                 double dx,double dy,double dz,
+static void xWing(double x, double y, double z,
+                 double dx, double dy, double dz,
                  double rx, double ry, double rz,
                  double th)
 {
@@ -471,58 +667,9 @@ static void xWing(double x,double y,double z,
    glVertex3d(-25,+9,-10);
    glEnd();
 
-   // Start Upper Left Engine
-   glPushMatrix();
-   glTranslated(-5.4, 3.75, -13);
-
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 0);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,-1);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
-      
-   }
-   glEnd();
-   
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 5);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,1);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
-      
-   }
-   glEnd();
-   
-   glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
-   }
-   glEnd();
-
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 5);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,-1);
-      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
-      
-   }
-   glEnd();
-
-   glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
-      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
-   }
-   glEnd();
-   glPopMatrix();
+   // Upper Left Engine and Laser
+   wingEngine(-5.4, 3.75, -13);
+   wingLaser(-24, 9, -16);
 
    // ------------------- Left Bottom Wing -----------------------------------
    glBegin(GL_POLYGON);
@@ -565,58 +712,9 @@ static void xWing(double x,double y,double z,
    glVertex3d(-25,-8,-10);
    glEnd();
 
-   // Start Lower Left Engine
-   glPushMatrix();
-   glTranslated(-5.4, -2.3, -13);
-
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 0);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,-1);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
-      
-   }
-   glEnd();
-   
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 5);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,1);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
-      
-   }
-   glEnd();
-   
-   glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
-   }
-   glEnd();
-
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 5);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,-1);
-      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
-      
-   }
-   glEnd();
-
-   glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
-      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
-   }
-   glEnd();
-   glPopMatrix();
+   // Bottom Left Engine and Laser
+   wingEngine(-5.4, -2.3, -13);
+   wingLaser(-24, -8, -16);
 
    // ------------------- Right Top Wing -----------------------------------
    glBegin(GL_POLYGON);
@@ -659,58 +757,9 @@ static void xWing(double x,double y,double z,
    glVertex3d(+25,+9,-10);
    glEnd();
 
-   // Start Upper Right Engine
-   glPushMatrix();
-   glTranslated(5.4, 3.75, -13);
-
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 0);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,-1);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
-      
-   }
-   glEnd();
-   
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 5);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,1);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
-      
-   }
-   glEnd();
-   
-   glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
-   }
-   glEnd();
-
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 5);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,-1);
-      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
-      
-   }
-   glEnd();
-
-   glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
-      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
-   }
-   glEnd();
-   glPopMatrix();
+   // Upper Right Engine and Laser
+   wingEngine(5.4, 3.75, -13);
+   wingLaser(24, 9, -16);
 
    // ------------------- Right Bottom Wing -----------------------------------
    glBegin(GL_POLYGON);
@@ -753,58 +802,9 @@ static void xWing(double x,double y,double z,
    glVertex3d(+25,-8,-10);
    glEnd();
 
-   // Start Lower Right Engine
-   glPushMatrix();
-   glTranslated(5.4, -2.3, -13);
-
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 0);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,-1);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
-      
-   }
-   glEnd();
-   
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 5);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,1);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
-      
-   }
-   glEnd();
-   
-   glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
-   }
-   glEnd();
-
-   glBegin(GL_TRIANGLE_FAN);
-   glVertex3d(0, 0, 5);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(0,0,-1);
-      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
-      
-   }
-   glEnd();
-
-   glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
-   {
-      glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
-      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
-   }
-   glEnd();
-   glPopMatrix();
+   // Bottom Right Engine and Laser
+   wingEngine(5.4, -2.3, -13);
+   wingLaser(24, -8, -16);
 
    //  Undo transofrmations
    glPopMatrix();
