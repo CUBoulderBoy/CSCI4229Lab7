@@ -315,6 +315,22 @@ static void xWing(double x,double y,double z,
    glVertex3d(-4,+4,-19);
    glEnd();
 
+   glBegin(GL_POLYGON);
+   normal(-3,4,-17, -3,4,0, -3,-3,-17);
+   glVertex3d(-3,+4,+0);
+   glVertex3d(-3,+4,-17);
+   glVertex3d(-3,-3,-17);
+   glVertex3d(-3,-3,+0);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(+3,4,-17, +3,4,0, +3,-3,-17);
+   glVertex3d(+3,+4,+0);
+   glVertex3d(+3,+4,-17);
+   glVertex3d(+3,-3,-17);
+   glVertex3d(+3,-3,+0);
+   glEnd();
+
    // ------------------- Body back panels --------------------------------
    glBegin(GL_POLYGON);
    normal(-3,-3,-19, -4,4,-19, 3,-3,-19);
@@ -330,6 +346,88 @@ static void xWing(double x,double y,double z,
    glVertex3d(-3,-3,-17);
    glVertex3d(+3,-3,-17);
    glVertex3d(+4,+4,-17);
+   glEnd();
+
+   // ------------------- Left Top Wing -----------------------------------
+   glBegin(GL_POLYGON);
+   normal(-3,0.5,-17, -3,0.5,-7, -25,8,-14);
+   glVertex3d(-3,+0.5,-7);
+   glVertex3d(-3,+0.5,-17);
+   glVertex3d(-25,+8,-14);
+   glVertex3d(-25,+8,-10);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-3,1.5,-17, -3,1.5,-7, -25,9,-14);
+   glVertex3d(-3,+1.5,-7);
+   glVertex3d(-3,+1.5,-17);
+   glVertex3d(-25,+9,-14);
+   glVertex3d(-25,+9,-10);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-25,8,-10, -3,0.5,-7, -25,9,-10);
+   glVertex3d(-3,+0.5,-7);
+   glVertex3d(-25,+8,-10);
+   glVertex3d(-25,+9,-10);
+   glVertex3d(-3,+1.5,-7);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-25,8,-14, -3,0.5,-17, -25,9,-14);
+   glVertex3d(-3,+0.5,-17);
+   glVertex3d(-25,+8,-14);
+   glVertex3d(-25,+9,-14);
+   glVertex3d(-3,+1.5,-17);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-25,8,-14, -25,9,-14, -25,8,-10);
+   glVertex3d(-25,+9,-14);
+   glVertex3d(-25,+8,-14);
+   glVertex3d(-25,+8,-10);
+   glVertex3d(-25,+9,-10);
+   glEnd();
+
+   // ------------------- Left Bottom Wing -----------------------------------
+   glBegin(GL_POLYGON);
+   normal(-3,0.5,-17, -3,0.5,-7, -25,-7,-14);
+   glVertex3d(-3,+0.5,-7);
+   glVertex3d(-3,+0.5,-17);
+   glVertex3d(-25,-7,-14);
+   glVertex3d(-25,-7,-10);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-3,-0.5,-17, -3,-0.5,-7, -25,-8,-14);
+   glVertex3d(-3,-0.5,-7);
+   glVertex3d(-3,-0.5,-17);
+   glVertex3d(-25,-8,-14);
+   glVertex3d(-25,-8,-10);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-25,-7,-10, -3,0.5,-7, -25,-8,-10);
+   glVertex3d(-3,+0.5,-7);
+   glVertex3d(-25,-7,-10);
+   glVertex3d(-25,-8,-10);
+   glVertex3d(-3,-0.5,-7);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-25,-7,-14, -3,0.5,-17, -25,-8,-14);
+   glVertex3d(-3,+0.5,-17);
+   glVertex3d(-25,-7,-14);
+   glVertex3d(-25,-8,-14);
+   glVertex3d(-3,-0.5,-17);
+   glEnd();
+
+   glBegin(GL_POLYGON);
+   normal(-25,-7,-14, -25,-8,-14, -25,-7,-10);
+   glVertex3d(-25,-8,-14);
+   glVertex3d(-25,-7,-14);
+   glVertex3d(-25,-7,-10);
+   glVertex3d(-25,-8,-10);
    glEnd();
 
    //  Undo transofrmations
