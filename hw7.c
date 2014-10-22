@@ -31,6 +31,7 @@
 #include "CSCIx229.h"
 #include <time.h>
 
+// World variables
 int axes=0;       //  Display axes
 int mode=1;       //  Projection mode
 int move=1;       //  Move light
@@ -40,6 +41,9 @@ int fov=55;       //  Field of view (for perspective)
 int light=0;      //  Lighting
 double asp=1;     //  Aspect ratio
 double dim=30.0;   //  Size of world
+
+// Texture array
+unsigned int texture[8]; // Texture names
 
 // Light values
 int one       =   1;  // Unit value
@@ -499,29 +503,34 @@ static void xWing(double x, double y, double z,
    glScaled(dx,dy,dz);
    glRotated(th,rx,ry,rz);
 
+   //  Enable textures
+   glEnable(GL_TEXTURE_2D);
+   glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,mode?GL_REPLACE:GL_MODULATE);
+
    // Nose left top panel
+   glBindTexture(GL_TEXTURE_2D,texture[2]);
    glBegin(GL_POLYGON);
    glColor3f(0.75,0.75,0.75);
    normal(-2,0,25, -5,0,-3, -1,1.5,30);
-   glVertex3d(-5,+0,-3);
-   glVertex3d(-2,+0,+30);
-   glVertex3d(-1,+1.5,+30);
-   glVertex3d(-2,+2.5,+7);
-   glVertex3d(-3,+5,+0);
-   glVertex3d(-3,+5,-2);
-   glVertex3d(-3,+4,-3);
+   glTexCoord2f(0,0); glVertex3d(-5,+0,-3);
+   glTexCoord2f(0,1); glVertex3d(-2,+0,+30);
+   glTexCoord2f(1,1); glVertex3d(-1,+1.5,+30);
+   glTexCoord2f(0,1); glVertex3d(-2,+2.5,+7);
+   glTexCoord2f(0,0); glVertex3d(-3,+5,+0);
+   glTexCoord2f(0,1); glVertex3d(-3,+5,-2);
+   glTexCoord2f(1,1); glVertex3d(-3,+4,-3);
    glEnd();
 
    // Nose right top panel
    glBegin(GL_POLYGON);
    normal(2,0,25, 5,0,-3, 1,1.5,30);
-   glVertex3d(+5,+0,-3);
-   glVertex3d(+2,+0,+30);
-   glVertex3d(+1,+1.5,+30);
-   glVertex3d(+2,+2.5,+7);
-   glVertex3d(+3,+5,+0);
-   glVertex3d(+3,+5,-2);
-   glVertex3d(+3,+4,-3);
+   glTexCoord2f(0,0); glVertex3d(+5,+0,-3);
+   glTexCoord2f(0,1); glVertex3d(+2,+0,+30);
+   glTexCoord2f(1,1); glVertex3d(+1,+1.5,+30);
+   glTexCoord2f(0,1); glVertex3d(+2,+2.5,+7);
+   glTexCoord2f(0,0); glVertex3d(+3,+5,+0);
+   glTexCoord2f(0,1); glVertex3d(+3,+5,-2);
+   glTexCoord2f(1,1); glVertex3d(+3,+4,-3);
    glEnd();
 
    // Cockpit window panel
@@ -714,12 +723,13 @@ static void xWing(double x, double y, double z,
    glEnd();
 
    // ------------------- Body back panels --------------------------------
+   glBindTexture(GL_TEXTURE_2D,texture[1]);
    glBegin(GL_POLYGON);
    normal(-3,-3,-19, -4,4,-19, 3,-3,-19);
-   glVertex3d(-4,+4,-19);
-   glVertex3d(-3,-3,-19);
-   glVertex3d(+3,-3,-19);
-   glVertex3d(+4,+4,-19);
+   glTexCoord2f(0,0); glVertex3d(-4,+4,-19);
+   glTexCoord2f(0,1); glVertex3d(-3,-3,-19);
+   glTexCoord2f(1,1); glVertex3d(+3,-3,-19);
+   glTexCoord2f(1,0); glVertex3d(+4,+4,-19);
    glEnd();
 
    glBegin(GL_POLYGON);
@@ -732,6 +742,9 @@ static void xWing(double x, double y, double z,
 
    // Build wings
    createWings();
+
+   // Disable Textures
+   glDisable(GL_TEXTURE_2D);
 
    //  Undo transofrmations
    glPopMatrix();
@@ -1163,6 +1176,16 @@ int main(int argc,char* argv[])
    //  Mouse handler functions
    glutMouseFunc(mouseButton);
    glutMotionFunc(mouseMove);
+
+   //  Load textures
+   texture[0] = LoadTexBMP("img0.bmp");
+   texture[1] = LoadTexBMP("img1.bmp");
+   texture[2] = LoadTexBMP("img2.bmp");
+   texture[3] = LoadTexBMP("img3.bmp");
+   texture[4] = LoadTexBMP("img4.bmp");
+   texture[5] = LoadTexBMP("img5.bmp");
+   texture[6] = LoadTexBMP("img6.bmp");
+   texture[7] = LoadTexBMP("img7.bmp");
 
    // Set clock
    ot = clock();
