@@ -508,29 +508,29 @@ static void xWing(double x, double y, double z,
    glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,mode?GL_REPLACE:GL_MODULATE);
 
    // Nose left top panel
-   glBindTexture(GL_TEXTURE_2D,texture[2]);
+   glBindTexture(GL_TEXTURE_2D,texture[7]);
    glBegin(GL_POLYGON);
    glColor3f(0.75,0.75,0.75);
    normal(-2,0,25, -5,0,-3, -1,1.5,30);
-   glTexCoord2f(0,0); glVertex3d(-5,+0,-3);
-   glTexCoord2f(0,1); glVertex3d(-2,+0,+30);
-   glTexCoord2f(1,1); glVertex3d(-1,+1.5,+30);
-   glTexCoord2f(0,1); glVertex3d(-2,+2.5,+7);
-   glTexCoord2f(0,0); glVertex3d(-3,+5,+0);
-   glTexCoord2f(0,1); glVertex3d(-3,+5,-2);
-   glTexCoord2f(1,1); glVertex3d(-3,+4,-3);
+   glTexCoord2f(-1,-1); glVertex3d(-5,+0,-3);
+   glTexCoord2f(-1,1); glVertex3d(-2,+0,+30);
+   glTexCoord2f(0,1); glVertex3d(-1,+1.5,+30);
+   glTexCoord2f(1,1); glVertex3d(-2,+2.5,+7);
+   glTexCoord2f(1,0); glVertex3d(-3,+5,+0);
+   glTexCoord2f(1,0); glVertex3d(-3,+5,-2);
+   glTexCoord2f(-1,1); glVertex3d(-3,+4,-3);
    glEnd();
 
    // Nose right top panel
    glBegin(GL_POLYGON);
    normal(2,0,25, 5,0,-3, 1,1.5,30);
-   glTexCoord2f(0,0); glVertex3d(+5,+0,-3);
-   glTexCoord2f(0,1); glVertex3d(+2,+0,+30);
-   glTexCoord2f(1,1); glVertex3d(+1,+1.5,+30);
-   glTexCoord2f(0,1); glVertex3d(+2,+2.5,+7);
-   glTexCoord2f(0,0); glVertex3d(+3,+5,+0);
-   glTexCoord2f(0,1); glVertex3d(+3,+5,-2);
-   glTexCoord2f(1,1); glVertex3d(+3,+4,-3);
+   glTexCoord2f(-1,-1); glVertex3d(+5,+0,-3);
+   glTexCoord2f(-1,1); glVertex3d(+2,+0,+30);
+   glTexCoord2f(0,1); glVertex3d(+1,+1.5,+30);
+   glTexCoord2f(1,1); glVertex3d(+2,+2.5,+7);
+   glTexCoord2f(1,0); glVertex3d(+3,+5,+0);
+   glTexCoord2f(1,0); glVertex3d(+3,+5,-2);
+   glTexCoord2f(-1,1); glVertex3d(+3,+4,-3);
    glEnd();
 
    // Cockpit window panel
@@ -562,12 +562,13 @@ static void xWing(double x, double y, double z,
 
    // ---------------------------- Nose panels  ---------------------------
    // Nose top panel
+   glBindTexture(GL_TEXTURE_2D,texture[7]);
    glBegin(GL_POLYGON);
    normal(2,2.5,7, -2,2.5,7, 1,1.5,30);
-   glVertex3d(-2,+2.5,+7);
-   glVertex3d(+2,+2.5,+7);
-   glVertex3d(+1,+1.5,+30);
-   glVertex3d(-1,+1.5,+30);
+   glTexCoord2f(0,0); glVertex3d(-2,+2.5,+7);
+   glTexCoord2f(0,1); glVertex3d(+2,+2.5,+7);
+   glTexCoord2f(1,0); glVertex3d(+1,+1.5,+30);
+   glTexCoord2f(1,1); glVertex3d(-1,+1.5,+30);
    glEnd();
 
    // Nose left bottom panel
