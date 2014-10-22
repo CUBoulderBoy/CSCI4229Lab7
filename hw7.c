@@ -43,7 +43,7 @@ double asp=1;     //  Aspect ratio
 double dim=30.0;   //  Size of world
 
 // Texture array
-unsigned int texture[8]; // Texture names
+unsigned int texture[9]; // Texture names
 
 // Light values
 int one       =   1;  // Unit value
@@ -508,7 +508,7 @@ static void xWing(double x, double y, double z,
    glTexEnvi(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,mode?GL_REPLACE:GL_MODULATE);
 
    // Nose left top panel
-   glBindTexture(GL_TEXTURE_2D,texture[7]);
+   glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    glColor3f(0.75,0.75,0.75);
    normal(-2,0,25, -5,0,-3, -1,1.5,30);
@@ -522,6 +522,7 @@ static void xWing(double x, double y, double z,
    glEnd();
 
    // Nose right top panel
+   glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    normal(2,0,25, 5,0,-3, 1,1.5,30);
    glTexCoord2f(-1,-1); glVertex3d(+5,+0,-3);
@@ -534,12 +535,13 @@ static void xWing(double x, double y, double z,
    glEnd();
 
    // Cockpit window panel
+   glBindTexture(GL_TEXTURE_2D,texture[8]);
    glBegin(GL_POLYGON);
    normal(-3,5,0, 3,5,0, -2,2.5,7);
-   glVertex3d(+3,+5,+0);
-   glVertex3d(-3,+5,+0);
-   glVertex3d(-2,+2.5,+7);
-   glVertex3d(+2,+2.5,+7);
+   glTexCoord2f(0,1); glVertex3d(+3,+5,+0);
+   glTexCoord2f(1,0); glVertex3d(-3,+5,+0);
+   glTexCoord2f(-1,0); glVertex3d(-2,+2.5,+7);
+   glTexCoord2f(0,-1); glVertex3d(+2,+2.5,+7);
    glEnd();
 
    // Cockpit top panel
@@ -562,7 +564,7 @@ static void xWing(double x, double y, double z,
 
    // ---------------------------- Nose panels  ---------------------------
    // Nose top panel
-   glBindTexture(GL_TEXTURE_2D,texture[7]);
+   glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    normal(2,2.5,7, -2,2.5,7, 1,1.5,30);
    glTexCoord2f(0,0); glVertex3d(-2,+2.5,+7);
@@ -572,41 +574,45 @@ static void xWing(double x, double y, double z,
    glEnd();
 
    // Nose left bottom panel
+   glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    normal(-2,0,30, -5,0,-3, -1,-1,30);
-   glVertex3d(-5,+0,-3);
-   glVertex3d(-2,+0,+30);
-   glVertex3d(-1,-1,+30);
-   glVertex3d(-3,-3,-3);
+   glTexCoord2f(-1,1); glVertex3d(-5,+0,-3);
+   glTexCoord2f(-1,0); glVertex3d(-2,+0,+30);
+   glTexCoord2f(1,0); glVertex3d(-1,-1,+30);
+   glTexCoord2f(1,1); glVertex3d(-3,-3,-3);
    glEnd();
 
    // Nose right bottom panel
+   glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    normal(2,0,30, 5,0,-3, +1,-1,30);
-   glVertex3d(+5,+0,-3);
-   glVertex3d(+2,+0,+30);
-   glVertex3d(+1,-1,+30);
-   glVertex3d(+3,-3,-3);
+   glTexCoord2f(-1,1); glVertex3d(+5,+0,-3);
+   glTexCoord2f(-1,0); glVertex3d(+2,+0,+30);
+   glTexCoord2f(1,0); glVertex3d(+1,-1,+30);
+   glTexCoord2f(1,1); glVertex3d(+3,-3,-3);
    glEnd();
 
    // Nose bottom panel
+   glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    normal(3,-3,-3, -3,-3,-3, 1,-1,30);
-   glVertex3d(-3,-3,-3);
-   glVertex3d(+3,-3,-3);
-   glVertex3d(+1,-1,+30);
-   glVertex3d(-1,-1,+30);
+   glTexCoord2f(-1,1); glVertex3d(-3,-3,-3);
+   glTexCoord2f(-1,0); glVertex3d(+3,-3,-3);
+   glTexCoord2f(1,0); glVertex3d(+1,-1,+30);
+   glTexCoord2f(1,1); glVertex3d(-1,-1,+30);
    glEnd();
 
    // Nose tip panel
+   glBindTexture(GL_TEXTURE_2D,texture[5]);
    glBegin(GL_POLYGON);
    normal(2,0,30, 1,-1,30, 1,1.5,30);
-   glVertex3d(+1,-1,+30);
-   glVertex3d(+2,+0,+30);
-   glVertex3d(+1,+1.5,+30);
-   glVertex3d(-1,+1.5,+30);
-   glVertex3d(-2,+0,+30);
-   glVertex3d(-1,-1,+30);
+   glTexCoord2f(1,-1); glVertex3d(+1,-1,+30);
+   glTexCoord2f(1,0); glVertex3d(+2,+0,+30);
+   glTexCoord2f(1,1); glVertex3d(+1,+1.5,+30);
+   glTexCoord2f(-1,1); glVertex3d(-1,+1.5,+30);
+   glTexCoord2f(-1,0); glVertex3d(-2,+0,+30);
+   glTexCoord2f(-1,-1); glVertex3d(-1,-1,+30);
    glEnd();
 
    // --------------- Body top and bottom panels -----------------------
@@ -1187,6 +1193,7 @@ int main(int argc,char* argv[])
    texture[5] = LoadTexBMP("img5.bmp");
    texture[6] = LoadTexBMP("img6.bmp");
    texture[7] = LoadTexBMP("img7.bmp");
+   texture[8] = LoadTexBMP("img8.bmp");
 
    // Set clock
    ot = clock();
