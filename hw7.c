@@ -664,10 +664,10 @@ static void xWing(double x, double y, double z,
    glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    normal(-4,4,-4, -5,0,-4, -3,4,-3);
-   glVertex3d(-3,+4,-3);
-   glVertex3d(-4,+4,-4);
-   glVertex3d(-5,+0,-4);
-   glVertex3d(-5,+0,-3);
+   glTexCoord2f(1,1); glVertex3d(-3,+4,-3);
+   glTexCoord2f(1,1); glVertex3d(-4,+4,-4);
+   glTexCoord2f(0,0); glVertex3d(-5,+0,-4);
+   glTexCoord2f(0,0); glVertex3d(-5,+0,-3);
    glEnd();
 
    glBegin(GL_POLYGON);
@@ -687,12 +687,13 @@ static void xWing(double x, double y, double z,
    glEnd();
 
    // --------------- Body right panels - behind cockpit to wings -------
+   glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    normal(+4,4,-4, +3,4,-3, +5,0,-4);
-   glVertex3d(+3,+4,-3);
-   glVertex3d(+4,+4,-4);
-   glVertex3d(+5,+0,-4);
-   glVertex3d(+5,+0,-3);
+   glTexCoord2f(1,1); glVertex3d(+3,+4,-3);
+   glTexCoord2f(1,1); glVertex3d(+4,+4,-4);
+   glTexCoord2f(0,0); glVertex3d(+5,+0,-4);
+   glTexCoord2f(0,0); glVertex3d(+5,+0,-3);
    glEnd();
 
    glBegin(GL_POLYGON);
