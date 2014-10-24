@@ -114,47 +114,51 @@ static void wingLaser(double x, double y, double z){
    glPushMatrix();
    glTranslated(x, y, z);
 
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_TRIANGLE_FAN);
    glVertex3d(0, 0, 0);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(0,0,-1);
-      glVertex3d(0.5 * Cos(th), 0.5 * Sin(th), 0);
+      glTexCoord2f(0.1558 + 0.5 * Cos(th), 0.25 + 0.5 * Sin(th)); glVertex3d(0.5 * Cos(th), 0.5 * Sin(th), 0);
       
    }
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(0.5 * Cos(th), 0.5 * Sin(th), 0);
-      glVertex3d(0.5 * Cos(th), 0.5 * Sin(th), 1);
+      glTexCoord2f(-1,-1); glVertex3d(0.5 * Cos(th), 0.5 * Sin(th), 0);
+      glTexCoord2f(-1,-1); glVertex3d(0.5 * Cos(th), 0.5 * Sin(th), 1);
    }
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_TRIANGLE_FAN);
    glVertex3d(0, 0, 1);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(0,0,-1);
-      glVertex3d(0.7 * Cos(th), 0.7 * Sin(th), 1);
+      glTexCoord2f(0.2182 + 0.7 * Cos(th), 0.35 + 0.7 * Sin(th)); glVertex3d(0.7 * Cos(th), 0.7 * Sin(th), 1);
       
    }
    glEnd();
    
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_TRIANGLE_FAN);
    glVertex3d(0, 0, 8);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(0,0,1);
-      glVertex3d(0.7 * Cos(th), 0.7 * Sin(th), 8);
+      glTexCoord2f(0.2182 + 0.7 * Cos(th), 0.35 + 0.7 * Sin(th)); glVertex3d(0.7 * Cos(th), 0.7 * Sin(th), 8);
       
    }
    glEnd();
    
    glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(Cos(th),Sin(th),0);
       glVertex3d(0.7 * Cos(th), 0.7 * Sin(th), 1);
@@ -162,18 +166,19 @@ static void wingLaser(double x, double y, double z){
    }
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_TRIANGLE_FAN);
    glVertex3d(0, 0, 16);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(0,0,1);
-      glVertex3d(0.4 * Cos(th), 0.4 * Sin(th), 16);
+      glTexCoord2f(0.1247 + 0.4 * Cos(th), 0.2 + 0.4 * Sin(th)); glVertex3d(0.4 * Cos(th), 0.4 * Sin(th), 16);
       
    }
    glEnd();
 
    glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(Cos(th),Sin(th),0);
       glVertex3d(0.4 * Cos(th), 0.4 * Sin(th), 8);
@@ -181,18 +186,19 @@ static void wingLaser(double x, double y, double z){
    }
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_TRIANGLE_FAN);
    glVertex3d(0, 0, 24);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(0,0,1);
-      glVertex3d(0.25 * Cos(th), 0.25 * Sin(th), 24);
+      glTexCoord2f(0.08 + 0.25 * Cos(th), 0.1875 + 0.25 * Sin(th)); glVertex3d(0.25 * Cos(th), 0.25 * Sin(th), 24);
       
    }
    glEnd();
 
    glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(Cos(th),Sin(th),0);
       glVertex3d(0.25 * Cos(th), 0.25 * Sin(th), 16);
@@ -200,18 +206,19 @@ static void wingLaser(double x, double y, double z){
    }
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_TRIANGLE_FAN);
    glVertex3d(0, 0, 24.5);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(0,0,1);
-      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), 24.5);
+      glTexCoord2f(0.256 + 0.8 * Cos(th), 0.6 + 0.8 * Sin(th)); glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), 24.5);
       
    }
    glEnd();
 
    glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(Cos(th),Sin(th),0);
       glVertex3d(0.4 * Cos(th), 0.4 * Sin(th), 24);
@@ -219,18 +226,19 @@ static void wingLaser(double x, double y, double z){
    }
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_TRIANGLE_FAN);
    glVertex3d(0, 0, 26);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(0,0,1);
-      glVertex3d(0.1 * Cos(th), 0.1 * Sin(th), 26);
+      glTexCoord2f(0.032 + 0.1 * Cos(th), 0.075 + 0.1 * Sin(th)); glVertex3d(0.1 * Cos(th), 0.1 * Sin(th), 26);
       
    }
    glEnd();
 
    glBegin(GL_QUAD_STRIP);
-   for (th = 0; th <= 360; th += 1)
+   for (th = 0; th <= 360; th += 5)
    {
       glNormal3d(Cos(th),Sin(th),0);
       glVertex3d(0.1 * Cos(th), 0.1 * Sin(th), 24.5);
@@ -786,7 +794,7 @@ static void xWing(double x, double y, double z,
    glEnd();
 
    // Build wings
-   //createWings();
+   createWings();
 
    // Disable Textures
    glDisable(GL_TEXTURE_2D);
