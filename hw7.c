@@ -638,6 +638,7 @@ static void xWing(double x, double y, double z,
    glEnd();
 
    // --------------- Body top and bottom panels -----------------------
+   // Body top panel
    glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    glNormal3d(0,1,0);
@@ -649,6 +650,7 @@ static void xWing(double x, double y, double z,
    glTexCoord2f(0.9375,0.7212); glVertex3d(-4,+4,-4);
    glEnd();
 
+   // Body bottom panel
    glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    glNormal3d(0,-1,0);
@@ -717,70 +719,74 @@ static void xWing(double x, double y, double z,
    glEnd();
 
    // ---------------- Body inner panels - to hide internals ------------
-   //
    glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    glNormal3d(0,0,1);
-   glVertex3d(+4,+4,-7);
-   glVertex3d(+5,+0,-7);
-   glVertex3d(+3,-3,-7);
-   glVertex3d(-3,-3,-7);
-   glVertex3d(-5,+0,-7);
-   glVertex3d(-4,+4,-7);
+   glTexCoord2f(0.9,1); glVertex3d(+4,+4,-7);
+   glTexCoord2f(1,0.428); glVertex3d(+5,+0,-7);
+   glTexCoord2f(0.8,0); glVertex3d(+3,-3,-7);
+   glTexCoord2f(0.2,0); glVertex3d(-3,-3,-7);
+   glTexCoord2f(0,0.428); glVertex3d(-5,+0,-7);
+   glTexCoord2f(0.1,1); glVertex3d(-4,+4,-7);
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    normal(3,-3,-19, 4,4,-17, 3,-3,-17);
-   glVertex3d(+4,+4,-17);
-   glVertex3d(+3,-3,-17);
-   glVertex3d(+3,-3,-19);
-   glVertex3d(+4,+4,-19);
+   glTexCoord2f(1,1); glVertex3d(+4,+4,-17);
+   glTexCoord2f(1,0); glVertex3d(+3,-3,-17);
+   glTexCoord2f(0,0); glVertex3d(+3,-3,-19);
+   glTexCoord2f(0,1); glVertex3d(+4,+4,-19);
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[3]);
    glBegin(GL_POLYGON);
    normal(-3,-3,-19, -3,-3,-17, -4,4,-17);
-   glVertex3d(-4,+4,-17);
-   glVertex3d(-3,-3,-17);
-   glVertex3d(-3,-3,-19);
-   glVertex3d(-4,+4,-19);
+   glTexCoord2f(0,1); glVertex3d(-4,+4,-17);
+   glTexCoord2f(0,0); glVertex3d(-3,-3,-17);
+   glTexCoord2f(1,0); glVertex3d(-3,-3,-19);
+   glTexCoord2f(1,1); glVertex3d(-4,+4,-19);
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[7]);
    glBegin(GL_POLYGON);
    normal(-3,4,0, -3,4,-17, -3,-3,-17);
-   glVertex3d(-3,+4,+0);
-   glVertex3d(-3,+4,-17);
-   glVertex3d(-3,-3,-17);
-   glVertex3d(-3,-3,+0);
+   glTexCoord2f(0,1); glVertex3d(-3,+4,+0);
+   glTexCoord2f(1,1); glVertex3d(-3,+4,-17);
+   glTexCoord2f(1,0); glVertex3d(-3,-3,-17);
+   glTexCoord2f(0,0); glVertex3d(-3,-3,+0);
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[7]);
    glBegin(GL_POLYGON);
    normal(+3,4,0, +3,-3,-17, +3,4,-17);
-   glVertex3d(+3,+4,+0);
-   glVertex3d(+3,+4,-17);
-   glVertex3d(+3,-3,-17);
-   glVertex3d(+3,-3,+0);
+   glTexCoord2f(1,1); glVertex3d(+3,+4,+0);
+   glTexCoord2f(0,1); glVertex3d(+3,+4,-17);
+   glTexCoord2f(0,0); glVertex3d(+3,-3,-17);
+   glTexCoord2f(1,0); glVertex3d(+3,-3,+0);
    glEnd();
 
    // ------------------- Body back panels --------------------------------
    glBindTexture(GL_TEXTURE_2D,texture[1]);
    glBegin(GL_POLYGON);
    glNormal3d(0,0,-1);
-   glTexCoord2f(0,0); glVertex3d(-4,+4,-19);
-   glTexCoord2f(0,1); glVertex3d(-3,-3,-19);
-   glTexCoord2f(1,1); glVertex3d(+3,-3,-19);
-   glTexCoord2f(1,0); glVertex3d(+4,+4,-19);
+   glTexCoord2f(0,1); glVertex3d(-4,+4,-19);
+   glTexCoord2f(0,0); glVertex3d(-3,-3,-19);
+   glTexCoord2f(1,0); glVertex3d(+3,-3,-19);
+   glTexCoord2f(1,1); glVertex3d(+4,+4,-19);
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_POLYGON);
    glNormal3d(0,0,-1);
-   glVertex3d(-4,+4,-17);
-   glVertex3d(-3,-3,-17);
-   glVertex3d(+3,-3,-17);
-   glVertex3d(+4,+4,-17);
+   glTexCoord2f(0,0); glVertex3d(-4,+4,-17);
+   glTexCoord2f(0,1); glVertex3d(-3,-3,-17);
+   glTexCoord2f(1,1); glVertex3d(+3,-3,-17);
+   glTexCoord2f(1,0); glVertex3d(+4,+4,-17);
    glEnd();
 
    // Build wings
-   createWings();
+   //createWings();
 
    // Disable Textures
    glDisable(GL_TEXTURE_2D);
