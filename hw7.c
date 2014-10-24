@@ -365,12 +365,13 @@ static void createWings(){
    glEnd();
 
    // Wing end cap
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_POLYGON);
    normal(-25,8,-14, -25,9,-14, -25,8,-10);
-   glVertex3d(-25,+9,-14);
-   glVertex3d(-25,+8,-14);
-   glVertex3d(-25,+8,-10);
-   glVertex3d(-25,+9,-10);
+   glTexCoord2f(0,0.5011); glVertex3d(-25,+9,-14);
+   glTexCoord2f(0,0.1); glVertex3d(-25,+8,-14);
+   glTexCoord2f(1,0.1); glVertex3d(-25,+8,-10);
+   glTexCoord2f(1,0.5011); glVertex3d(-25,+9,-10);
    glEnd();
 
    // Upper Left Engine and Laser
@@ -419,12 +420,13 @@ static void createWings(){
    glEnd();
 
    // Wing end cap
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_POLYGON);
    normal(-25,-7,-14, -25,-8,-14, -25,-7,-10);
-   glVertex3d(-25,-8,-14);
-   glVertex3d(-25,-7,-14);
-   glVertex3d(-25,-7,-10);
-   glVertex3d(-25,-8,-10);
+   glTexCoord2f(0,0.5011); glVertex3d(-25,-8,-14);
+   glTexCoord2f(0,0.1); glVertex3d(-25,-7,-14);
+   glTexCoord2f(1,0.1); glVertex3d(-25,-7,-10);
+   glTexCoord2f(1,0.5011); glVertex3d(-25,-8,-10);
    glEnd();
 
    // Bottom Left Engine and Laser
@@ -473,12 +475,13 @@ static void createWings(){
    glEnd();
 
    // Wing end cap
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_POLYGON);
    normal(25,8,-14, 25,9,-14, 25,8,-10);
-   glVertex3d(+25,+9,-14);
-   glVertex3d(+25,+8,-14);
-   glVertex3d(+25,+8,-10);
-   glVertex3d(+25,+9,-10);
+   glTexCoord2f(0,0.5011); glVertex3d(+25,+9,-14);
+   glTexCoord2f(0,0.1); glVertex3d(+25,+8,-14);
+   glTexCoord2f(1,0.1); glVertex3d(+25,+8,-10);
+   glTexCoord2f(1,0.5011); glVertex3d(+25,+9,-10);
    glEnd();
 
    // Upper Right Engine and Laser
@@ -527,12 +530,13 @@ static void createWings(){
    glEnd();
 
    // Wing end cap
+   glBindTexture(GL_TEXTURE_2D,texture[6]);
    glBegin(GL_POLYGON);
    normal(25,-7,-14, 25,-7,-10, 25,-8,-14);
-   glVertex3d(+25,-8,-14);
-   glVertex3d(+25,-7,-14);
-   glVertex3d(+25,-7,-10);
-   glVertex3d(+25,-8,-10);
+   glTexCoord2f(0,0.5011); glVertex3d(+25,-8,-14);
+   glTexCoord2f(0,0.1); glVertex3d(+25,-7,-14);
+   glTexCoord2f(1,0.1); glVertex3d(+25,-7,-10);
+   glTexCoord2f(1,0.5011); glVertex3d(+25,-8,-10);
    glEnd();
 
    // Bottom Right Engine and Laser
