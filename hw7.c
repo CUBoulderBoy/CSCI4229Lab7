@@ -997,11 +997,11 @@ void display()
 
    //  Display parameters
    glWindowPos2i(5,5);
-   Print("p/P: View Mode | Mouse LButton: Rotate Camera | Mouse RButton: Fwd/Bkwd and R/L Strafe");
+   Print("Mouse LButton: Rotate Camera | Mouse RButton: Fwd/Bkwd and R/L Strafe");
 
    //  Display parameters
    glWindowPos2i(5,25);
-   Print("f/F: Frozen/Falling Snow | PgUp: Move Fwd | PdDn: Move Bkwd | Arrows: Rotate Camera");
+   Print("PgUp: Move Fwd | PdDn: Move Bkwd | Arrows: Rotate Camera");
    
    //  Display parameters
    glWindowPos2i(5,45);
@@ -1059,11 +1059,11 @@ void special(int key,int x,int y)
    
    //  PageUp key - increase dim
    else if (key == GLUT_KEY_PAGE_DOWN)
-      dim -= 0.1;
+      dim += 0.1;
    
    //  PageDown key - decrease dim
    else if (key == GLUT_KEY_PAGE_UP && dim>1)
-      dim += 0.1;
+      dim -= 0.1;
    
    //  Smooth color model
    else if (key == GLUT_KEY_F1)
@@ -1244,7 +1244,7 @@ int main(int argc,char* argv[])
    //  Request double buffered, true color window with Z buffering at 600x600
    glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH | GLUT_DOUBLE);
    glutInitWindowSize(800,800);
-   glutCreateWindow("Christopher Jordan Lab5: Snow with Lighting");
+   glutCreateWindow("Christopher Jordan Lab7: X-Wing with Lighting and Textures");
    //  Set callbacks
    glutDisplayFunc(display);
    glutReshapeFunc(reshape);
