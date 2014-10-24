@@ -263,51 +263,56 @@ static void wingEngine(double x, double y, double z){
    glPushMatrix();
    glTranslated(x, y, z);
 
+   glBindTexture(GL_TEXTURE_2D,texture[4]);
    glBegin(GL_TRIANGLE_FAN);
    glVertex3d(0, 0, 0);
    for (th = 0; th <= 360; th += 1)
    {
       glNormal3d(0,0,-1);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      glTexCoord2f(0.25 + 0.1 * Cos(th), 0.5 + 0.1 * Sin(th)); glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
       
    }
    glEnd();
    
+   glBindTexture(GL_TEXTURE_2D,texture[0]);
    glBegin(GL_TRIANGLE_FAN);
    glVertex3d(0, 0, 8);
    for (th = 0; th <= 360; th += 1)
    {
       glNormal3d(0,0,1);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+      glTexCoord2f(0.5 + Cos(th), 0.5 + Sin(th)); glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
       
    }
    glEnd();
    
+   glBindTexture(GL_TEXTURE_2D,texture[4]);
    glBegin(GL_QUAD_STRIP);
    for (th = 0; th <= 360; th += 1)
    {
       glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
-      glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
+      glTexCoord2f(0,th*0.0016); glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 0);
+      glTexCoord2f(1,th*0.0016); glVertex3d(1.5 * Cos(th), 1.5 * Sin(th), 8);
    }
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[0]);
    glBegin(GL_TRIANGLE_FAN);
    glVertex3d(0, 0, -9);
    for (th = 0; th <= 360; th += 1)
    {
       glNormal3d(0,0,-1);
-      glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
+      glTexCoord2f(0.5 + Cos(th), 0.5 + Sin(th)); glVertex3d(0.8 * Cos(th), 0.8 * Sin(th), -9);
       
    }
    glEnd();
 
+   glBindTexture(GL_TEXTURE_2D,texture[4]);
    glBegin(GL_QUAD_STRIP);
    for (th = 0; th <= 360; th += 1)
    {
       glNormal3d(Cos(th),Sin(th),0);
-      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
-      glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
+      glTexCoord2f(0,th*0.0016); glVertex3d(.8 * Cos(th), 0.8 * Sin(th), 0);
+      glTexCoord2f(1,th*0.0016); glVertex3d(.8 * Cos(th), 0.8 * Sin(th), -9);
    }
    glEnd();
    glPopMatrix();
