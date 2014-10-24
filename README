@@ -37,6 +37,7 @@ Key bindings
   p          Toggles ortogonal/perspective projection
   +/-        Change field of view of perspective
   x          Toggle axes
+  t          Toggle texture
   arrows     Change view angle
   PgDn/PgUp  Zoom Out and In
   Mouse LB     Change view angle

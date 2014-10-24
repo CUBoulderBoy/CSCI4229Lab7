@@ -23,6 +23,7 @@
  *  p          Toggles ortogonal/perspective projection
  *  +/-        Change field of view of perspective
  *  x          Toggle axes
+ *  t          Toggle texture
  *  arrows     Change view angle
  *  PgDn/PgUp  Zoom in and out
  *  0          Reset view angle
@@ -33,7 +34,8 @@
 
 // World variables
 int axes=0;       //  Display axes
-int mode=1;       //  Projection mode
+int mode=1;       //  Texture mode
+int view=1;       //  Projection mode
 int move=1;       //  Move light
 int th=0;         //  Azimuth of view angle
 int ph=0;         //  Elevation of view angle
@@ -899,7 +901,7 @@ void display()
    glLoadIdentity();
    
    //  Perspective - set eye position
-   if (mode)
+   if (view)
    {
       double Ex2 = -2*dim*Sin(th)*Cos(ph);
       double Ey2 = +2*dim        *Sin(ph);
@@ -1001,12 +1003,12 @@ void display()
 
    //  Display parameters
    glWindowPos2i(5,25);
-   Print("PgUp: Move Fwd | PdDn: Move Bkwd | Arrows: Rotate Camera");
+   Print("PgUp: Move Fwd | PdDn: Move Bkwd | Arrows: Rotate Camera | T/t: Texture Mode");
    
    //  Display parameters
    glWindowPos2i(5,45);
    Print("Angle=%d,%d  Dim=%.1f FOV=%d Projection=%s Light=%s",
-     th,ph,dim,fov,mode?"Perpective":"Orthogonal",light?"On":"Off");
+     th,ph,dim,fov,view?"Perpective":"Orthogonal",light?"On":"Off");
 
    // If light is on display lighting
    if (light)
@@ -1088,7 +1090,7 @@ void special(int key,int x,int y)
    ph %= 360;
    
    //  Update projection
-   Project(mode?fov:0,asp,dim);
+   Project(view?fov:0,asp,dim);
    
    //  Tell GLUT it is necessary to redisplay the scene
    glutPostRedisplay();
@@ -1113,11 +1115,13 @@ void key(unsigned char ch,int x,int y)
       light = 1-light;
    //  Switch projection mode
    else if (ch == 'p' || ch == 'P')
-      mode = 1-mode;
+      view = 1-view;
    //  Toggle light movement
    else if (ch == 'm' || ch == 'M')
       move = 1-move;
-
+   //  Toggle texture
+   else if (ch == 't' || ch == 'T')
+      mode = 1-mode;
    //  Move light
    else if (ch == '<')
       zh += 1;
@@ -1161,7 +1165,7 @@ void key(unsigned char ch,int x,int y)
    //  Translate shininess power to value (-1 => 0)
    shinyvec[0] = shininess<0 ? 0 : pow(2.0,shininess);
    //  Reproject
-   Project(mode?fov:0,asp,dim);
+   Project(view?fov:0,asp,dim);
    //  Animate if requested
    glutIdleFunc(move?idle:NULL);
    //  Tell GLUT it is necessary to redisplay the scene
@@ -1206,7 +1210,7 @@ void mouseMove(int x, int y) {
       xOrigin = x;
 
       // Forward and backward movement
-      if ( mode ){
+      if ( view ){
          fov += (y - yOrigin)/2;
       }
       else{
@@ -1215,7 +1219,7 @@ void mouseMove(int x, int y) {
       yOrigin = y;
    }
    //  Reproject
-   Project(mode?fov:0,asp,dim);
+   Project(view?fov:0,asp,dim);
 
    //  Redisplay the scene
    glutPostRedisplay();
@@ -1231,7 +1235,7 @@ void reshape(int width,int height)
    //  Set the viewport to the entire window
    glViewport(0,0, width,height);
    //  Set projection
-   Project(mode?fov:0,asp,dim);
+   Project(view?fov:0,asp,dim);
 }
 
 /*
